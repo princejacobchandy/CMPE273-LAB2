@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+	<html>
+
+		<head>
+			<!--link rel='stylesheet' href='/stylesheets/style.css' /-->
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+			
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			
+			<link rel='stylesheet' href='/stylesheets/hr.css' />
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+			
+			<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+			<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+			<link rel='stylesheet' href='/stylesheets/style.css' />
+			<link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+			<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+			<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+			<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script-->
+			
+			<meta charset="utf-8">
+			
+			<!--meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+			<meta http-equiv="Pragma" content="no-cache" />
+			<meta http-equiv="Expires" content="0" /-->
+		
+			<script src="angularjs/checkout.js"></script>
+			
+			<title>checkout</title>
+			
+			
+		</head>
+
+	
+		<body style="background-color :#F0EEEC" ng-app="checkoutapp" ng-controller="checkoutcontroller">
+		
+		<!--div class="row">
+			<div class="col-md-12">
+				<form action="logout" method="post">
+					<h4>Welcome to the Homepage, <%= firstname %></h4>
+					<input type="submit" value="Logout"  class="btn btn-success"/>
+				</form>
+			</div>
+		</div-->
+		
+			<div class="row"><br></div>
+			<div class="row"> <!--FIRST ROW-->
+				<div class="col-sm-3"> </div> <!--left empty column-->
+				
+				<div class="col-sm-1"><a href="/homepage"><img src="images/ebay_transparent.png" style="width:110px;height:44px;"></a></div>	
+				
+				<div class="col-sm-5" style="font-size:250%">Checkout<br></div>
+					
+				<div class="col-sm-3"> </div>  <!--right empty column-->
+			</div> <!--FIRST ROW-->
+			
+			
+			<div class="row"> <!--SECOND ROW-->
+				<div class="col-sm-3"> </div> <!--left empty column-->
+				
+					<div class="col-sm-4"> 
+					    <b>Pay with</b>
+						<div class="panel panel-default">
+							<div class="panel-body"> <!--INNER PANEL BODY-->
+								<div class="col-sm-12" style="font-size:150%;"><span class="glyphicon glyphicon-credit-card"></span> Credit or debit card<hr><br></div>
+								
+								
+								<div class="row">
+									<div class="col-sm-6" >
+										<!--button  class="btn btn-primary" style="display: block; width: 100%;font-size:auto" ng-click="" id="donebtn"><strong>Use this card</strong></button-->
+										Current Card Information: 
+									</div>
+									<div class="col-sm-6" style="font-size:auto;" align="left">{{my_payment}}<br></div>
+									<div class="col-sm-6">
+										
+									</div>
+								</div>
+								<div class="row"><br></div>
+								<div class="row">&nbsp;&nbsp;&nbsp;&nbsp;<a ng-click="updatepayment()">Update payment information</a></div>
+								
+								<div ng-show="updatepaymentdiv">
+								<div class="row">
+								<div class="col-sm-6"><input type="number" class="form-control" id="inputcardno" placeholder="Card number&#42;" ng-model="cardno_model"></div>
+								<div class="col-sm-6"></div>
+								</div>
+								<br>
+								
+								<div class="row">
+								<div class="col-sm-6"><input type="date" class="form-control" id="inputedate" placeholder="Expiration date&#42;" ng-model="edate_model"></div>
+								<div class="col-sm-6"><input type="number" class="form-control" id="inputcvv" placeholder="Security code&#42;" ng-model="cvvno_model"></div>
+								</div>
+								<br>
+								
+								<div class="row">
+								<div class="col-sm-6"><input type="text" class="form-control" id="inputfname" placeholder="First name" ng-model="fname_model"></div>
+								<div class="col-sm-6"><input type="text" class="form-control" id="inputuname" placeholder="Last name" ng-model="uname_model"></div>
+								</div>
+								<br>
+								
+								
+								<div class="col-sm-12" ng-show="invalid_card">
+									<div class="alert alert-danger"  style="width: auto;font-size:auto;">
+									{{errormessage}} &nbsp;&nbsp;&nbsp;Try Again !
+									</div>
+								</div>
+								
+								
+								<div class="row">
+								<div class="col-sm-6"></div>
+								<div class="col-sm-3">
+									<button  class="btn btn-default" style="display: block; width: 100%;font-size:auto" ng-click="cancel();" ><strong>Cancel</strong></button>
+								</div>
+								<div class="col-sm-3">
+									<button  class="btn btn-primary" style="display: block; width: 100%;font-size:auto" ng-click="validatecard();" ><strong>Done</strong></button>
+								</div>
+								</div>
+								</div>
+								
+							</div> <!--INNER PANEL BODY-->	
+						</div> <!--panel panel-default-->
+					</div>
+			
+					<div class="col-sm-2"> 
+						<b>Total Amount</b>
+						<div class="panel panel-default">
+							<div class="panel-body"> <!--INNER PANEL BODY-->
+								<div class="col-sm-8" style="font-size:auto;" align="left">Subtotal ({{noofitems}} items):</div>
+								<div class="col-sm-4" style="font-size:auto;" align="right">${{totalamount}}</div>
+								
+								<div class="col-sm-8" style="font-size:auto;" align="left">Shipping: </div>
+								<div class="col-sm-4" style="font-size:auto;" align="right">FREE</div>
+								
+								<div class="col-sm-8" style="font-size:auto;" align="left">Sales Tax:</div>
+								<div class="col-sm-4" style="font-size:auto;" align="right">$0</div>
+								<div class="col-sm-12" style="font-size:auto;"><hr></div>
+								<div class="col-sm-8" style="font-size:auto;" align="left"><b>Order Total:</b></div>
+								<div class="col-sm-4" style="font-size:auto;" align="right"><b>${{totalamount}}</b></div>
+								
+								<div class="col-sm-12">
+									<br>
+									<button  class="btn btn-primary" style="display: block; width: 100%;font-size:auto" ng-click="finalcheckout();" disabled id="confirmbtn"><strong>Confirm and pay</strong></button>
+								</div>
+								<div class="col-sm-12">
+									<br>
+									<button  class="btn btn-default" style="display: block; width: 100%;font-size:auto" ng-click="gotocartpage();" ><strong>Cancel</strong></button>
+								</div>
+							</div> <!--INNER PANEL BODY-->	
+						</div> <!--panel panel-default-->
+					</div>
+			
+					
+				<div class="col-sm-3"> </div>  <!--right empty column-->
+			</div> <!--SECOND ROW-->
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="row"> <!--THIRD ROW-->
+				<div class="col-sm-3"> </div> <!--left empty column-->
+				
+				<div class="col-sm-4"> 
+					<b>Ship to</b>
+					<div class="panel panel-default">
+							<div class="panel-body"> <!--INNER PANEL BODY-->
+								
+								
+								<div class="row">
+									<div class="col-sm-6" >
+										<!--button  class="btn btn-primary" style="display: block; width: 100%;font-size:auto" ng-click="" id="donebtn"><strong>Use this Address</strong></button-->
+										Current Shipping Address: 
+									</div>
+									
+									<div class="col-sm-6" style="font-size:auto;" align="left" >{{addressline1}}<br>{{addressline2}}<br>{{addresscity}}<br>{{addressstate}}<br>{{addresspin}}</div>
+									
+								</div>
+								<div class="row"><br></div>
+								<div class="row">&nbsp;&nbsp;&nbsp;&nbsp;<a ng-click="updateaddress()">Update address</a></div>
+								
+								<div ng-show="updateaddressdiv"> <!--new adress div-->
+								<div class="row">
+								<div class="col-sm-6"><input type="text" class="form-control"  placeholder="Street address&#42;" ng-model="address1"></div>
+								<div class="col-sm-6"><input type="text" class="form-control"  placeholder="Street address 2 (optional)" ng-model="address2"></div>
+								</div>
+								<br>
+								
+								<div class="row">
+								<div class="col-sm-6"><input type="text" class="form-control"  placeholder="City&#42;" ng-model="address3"></div>
+								<div class="col-sm-6"><input type="text" class="form-control"  placeholder="State&#42;" ng-model="address4"></div>
+								</div>
+								<br>
+								
+								<div class="row">
+								<div class="col-sm-6"><input type="text" class="form-control"  placeholder="Zipcode&#42;" ng-model="address5"></div>
+								<!--div class="col-sm-6"><input type="text" class="form-control" id="inputUsername" placeholder="Country&#42;" ng-model="uname_model"></div-->
+								</div>
+								<br>
+								
+								<div class="row">
+								<div class="col-sm-6"></div>
+								<div class="col-sm-3">
+									<button  class="btn btn-default" style="display: block; width: 100%;font-size:auto" ng-click="cancel();" ><strong>Cancel</strong></button>
+								</div>
+								<div class="col-sm-3">
+									<button  class="btn btn-primary" style="display: block; width: 100%;font-size:auto" ng-click="addaddresstodb()" ><strong>Save</strong></button>
+								</div>
+								</div>
+								</div> <!--new adress div-->
+								
+
+							</div> <!--INNER PANEL BODY-->	
+						</div> <!--panel panel-default-->
+				</div>
+			
+				<div class="col-sm-2"> </div>
+				<div class="col-sm-3"> </div>  <!--right empty column-->
+			</div> <!--THIRD ROW-->
+			
+			
+			<div class="row"> <!--FOURTH ROW-->
+			
+				<div class="col-sm-3"> </div> <!--left empty column-->
+				<div class="col-sm-4"> <!--LEFT MAIN COLUMN AREA-->
+					
+					<b>Review items and shipping ({{noofitems}} items)</b>
+					
+						<div class="panel panel-default"> <!--PANEL PRIMARY-->
+							<div class="panel-body"> <!--PANEL BODY-->
+							
+								<div class="col-sm-12" ng-repeat="product in shoppingCart">  <!--ONE AD-->
+									<div class="panel panel-default">
+									<div class="panel-heading" style="font-size:auto;"><strong><h3>{{product.product_name}}</h3></strong></div>
+									<div class="panel-body"> <!--INNER PANEL BODY-->
+									
+										
+										<div class="col-sm-12" style="font-size:auto;"><strong></strong></div>
+										
+										<div class="col-sm-12" style="font-size:auto;"><strong>{{product.product_desc}}</strong></div>
+										
+										<div class="col-sm-12">
+										<br>		
+										</div>
+										
+									    
+										<div class="col-sm-6" style="font-size:auto;"><strong>Price(1 quantity): ${{product.product_price}}</strong></div>
+										
+										<div class="col-sm-6" style="font-size:auto;" align='right'>Quantity: {{product.product_qty}}</div>
+										
+									</div> <!--INNER PANEL BODY-->	
+						
+									<div class="panel-footer">
+									<div class="row">
+									<div class="col-sm-12" align ="middle"> Seller: {{product.seller_uname}} </div>
+					
+									<!--div class="col-sm-1" align="middle"> | </div-->
+									<!--div class="col-sm-4"><input type="checkbox" value="thenga_value">Shop now</div-->
+									<!--div class="col-sm-4" ><a href="#"><strong>Add to Cart</strong></a></div-->
+									</div>
+									</div>	
+									</div>
+								</div>	<!--ONE AD-->
+
+	
+							</div> <!--PANEL BODY-->	
+						</div> <!--PANEL PRIMARY-->
+					
+
+				</div> <!--LEFT MAIN COLUMN AREA-->
+				
+				<div class="col-sm-2"> </div>
+				<div class="col-sm-3"> </div>  <!--right empty column-->
+			</div> <!--FORTH ROW-->
+	
+			
+	
+		</body>
+	</html>
+

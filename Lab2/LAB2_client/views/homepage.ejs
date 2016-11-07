@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+	<html>
+
+		<head>
+			<!--link rel='stylesheet' href='/stylesheets/style.css' /-->
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+			<link rel='stylesheet' href='/stylesheets/hr.css' />
+			
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+			
+			<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+			<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+			<link rel='stylesheet' href='/stylesheets/style.css' />
+			<link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+			<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+			<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+			<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script-->
+			
+			<meta charset="utf-8">
+			
+			<!--meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+			<meta http-equiv="Pragma" content="no-cache" />
+			<meta http-equiv="Expires" content="0" /-->
+		
+			<script src="angularjs/homepage.js"></script>
+			
+			<title>homepage</title>
+			
+			
+		</head>
+
+	
+		<body style="background-color :#F8F8F8" ng-app="homepageapp" ng-controller="homepagecontroller">
+		
+		<!--div class="row">
+			<div class="col-md-12">
+				<form action="logout" method="post">
+					<h4>Welcome to the Homepage, <%= firstname %></h4>
+					<input type="submit" value="Logout"  class="btn btn-success"/>
+				</form>
+			</div>
+		</div-->
+		
+		
+
+			<nav class="navbar navbar-default" > <!--FIRST MAIN ROW-->
+			<div class="container-fluid" style="background-color :#FFFFFF;  height:50px">
+				<div class="row"> <!--main row-->
+				<div class="col-sm-2"> </div> <!--left empty column-->
+
+				<div class="col-sm-8"><!--main column-->
+
+				<!--div class="navbar-header"><a class="navbar-brand" href="#" >Hi, Prince</a></div-->
+				<ul class="nav navbar-nav">
+					<!--li class="active" ><a href="#">Home</a></li-->
+
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hi, <strong><%= firstname %></strong><span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="/profile">My Proflile</a></li> <!--route to profile-->
+							<li><a href="/profile">My Advertisements</a></li>
+							
+							<li><a href="/profile">Sales History</a></li>
+							<li><a href="/profile">Purchase History</a></li>
+							<li><a href="/profile">Bidding History</a></li>							
+							<li><a href="/logout">Sign out</a></li>
+						</ul>
+					</li>
+					
+					
+					<li><a href="/homepage">Home</a></li>
+					<li><a href="/homepage">Daily deals</a></li>
+					<li><a href="#">Gift Cards</a></li>
+					<li><a href="#">Help & Contact</a></li>
+	
+				</ul>
+				
+				 <ul class="nav navbar-nav navbar-right">
+					<li><a href="/profile">Sell</a></li> <!--route to profile-->
+ 
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">My eBay</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Summary</a></li>
+							<li><a href="#">All lists</a></li>
+							<li><a href="#">Wish list</a></li>
+						</ul>
+					</li>
+				 
+					<li><a href="/failcheckout"><span class="glyphicon glyphicon-bell"></span></a></li>
+					<li><a href="/cartpage"><span class="glyphicon glyphicon-shopping-cart"></span></a></li> <!--route to shopping cart-->
+				</ul>
+				</div><!--main column-->
+
+				<div class="col-sm-2"> </div>  <!--right empty column-->
+				</div> <!--main row-->
+			</div>
+			</nav> <!--FIRST MAIN ROW-->
+			
+  
+			<div class="row"> <!--SECOND MAIN ROW-->
+				<div class="col-sm-2"> </div> <!--left empty column-->
+				
+				<div class="col-sm-1">
+					<a href="/homepage"><img src="images/ebay_transparent.png" style="width:110px;height:44px;float:right" align="top" ></a>
+				</div>	
+				
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="mainSearch" placeholder="Search..." ng-model="search_model">
+				</div>
+					
+				<div class="col-sm-1">
+					<button  class="btn btn-primary" style="display: block; width: 100%;font-size:auto" ng-click="registersubmit();">Search</button>
+				</div>
+					
+				<div class="col-sm-2"> </div>  <!--right empty column-->
+			</div> <!--SECOND MAIN ROW-->
+			
+			
+			<nav class="navbar navbar-default" > <!--THIRD MAIN ROW-->
+			<div class="container-fluid" style="background-color :#F8F8F8;  height:50px">
+				<div class="row"> <!--main row-->
+				<div class="col-sm-2"> </div> <!--left empty column-->
+
+				<div class="col-sm-8"><!--main column-->
+
+				<!--div class="navbar-header"><a class="navbar-brand" href="#" >Hi, Prince</a></div-->
+				<ul class="nav navbar-nav">
+					<!--li class="active" ><a href="#">Home</a></li-->
+					<li><a href="#">Following</a></li>
+					<li><a href="#">Today</a></li>
+					<li><a href="#">Motors</a></li>
+					<li><a href="#">Fashion</a></li>
+					<li><a href="#">Electronics</a></li>
+					<li><a href="#">Collectibles & Art</a></li>
+					<li><a href="#">Home & Garden</a></li>
+					<li><a href="#">Sporting Goods</a></li>
+					<li><a href="#">Toys</a></li>
+					<li><a href="#">Business & Industrial</a></li>
+					<li><a href="#">Music</a></li>
+					<li><a href="#">Deals</a></li>
+	
+				</ul>
+				
+				</div><!--main column-->
+
+				<div class="col-sm-2"> </div>  <!--right empty column-->
+				</div> <!--main row-->
+			</div>
+			</nav> <!--THIRD MAIN ROW-->
+			
+			<div class="row" > 
+			<div class="col-sm-2"> </div> 
+			<div class="col-sm-8">
+				<div class="alert alert-primary" style="width: auto;font-size:auto;">
+				You last logged in to ebay on <%= lastLogin %> 
+				</div>
+			</div>	
+			<div class="col-sm-2"> </div> 
+			</div>
+			
+			
+			<div class="row"> <!--FOURTH MAIN ROW-->
+			<div class="col-sm-2"> </div> <!--left empty column-->
+			<div class="col-sm-6" align="left"><!--carousel column-->
+			
+			<div class="container" style="width: 876px; height:402px" > <!--container-->
+			<br>
+				<div id="myCarousel" class="carousel slide" data-ride="carousel">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+					<li data-target="#myCarousel" data-slide-to="3"></li>
+					<li data-target="#myCarousel" data-slide-to="4"></li>
+					</ol>
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner" role="listbox" width="100%" height="100%">
+
+						<div class="item active">
+							<img src="images/1.jpg" alt="Chania" width="100%" height="100%">
+							<!--div class="carousel-caption">
+								<h3>Chania</h3>
+								<p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+							</div-->
+						</div>
+						
+						<div class="item">
+							<img src="images/2.jpg" alt="Flower" width="100%" height="100%">
+							<!--div class="carousel-caption">
+								<h3>Flowers</h3>
+								<p>Beatiful flowers in Kolymbari, Crete.</p>
+							</div-->
+						</div>
+						
+						<div class="item">
+							<img src="images/3.jpg" alt="Flower" width="100%" height="100%">
+							<!--div class="carousel-caption">
+								<h3>Flowers</h3>
+								<p>Beatiful flowers in Kolymbari, Crete.</p>
+							</div-->
+						</div>
+						
+
+						
+  
+					</div> <!--carousel inner-->
+
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div> <!--myCarousel-->
+			</div> <!--container-->  
+			
+			</div> <!--carousel column-->
+			
+			
+			<!--div class="col-sm-2"> 
+			<div class="row">
+			
+			<div class="row"><br></div>
+						<div class="panel panel-default">
+							<div class="panel-heading" align="middle" style="font-size:auto" ng-model="product_name_model"><strong><h3><a href="/profile">PROFILE</a></h3></strong></div>
+							<div class="panel-body" >
+								<div class="row" align="middle" ng-model="product_desc_model"><strong><br></strong></div>
+								<br>
+								<div class="row" align="middle" ng-model="product_desc_model"><strong><br></strong></div>
+								<br>
+								<div class="row" align="middle" ng-model="product_desc_model"><strong><br></strong></div>
+								<br>
+								<div class="row" align="middle" ng-model="product_desc_model"><strong><br></strong></div>
+								<br>
+								<div class="row" align="middle" ng-model="product_desc_model"><strong><br></strong></div>
+								<br>
+								<div class="row" align="middle" ng-model="product_desc_model"><strong><br></strong></div>
+								<br>
+								<div class="row" align="middle" ng-model="product_desc_model"><strong><br><br></strong></div>
+							</div>	
+						</div>
+			</div-->	
+
+			
+			</div> 
+			
+			<div class="col-sm-2"> </div> <!--right empty column-->
+			
+			</div> <!--FOURTH MAIN ROW-->
+			
+			<br><br>
+			<div class="row" ng-show="biddingsuccessful">
+			<div class="col-sm-2"> </div> 
+			<div class="col-sm-8">
+				<div class="alert alert-success" style="width: auto;font-size:auto;">
+				{{bidmessage}}{{currenttimer}} 
+				</div>
+			</div>	
+			<div class="col-sm-2"> </div> 
+			</div>
+			
+			<div class="row" ng-show="biddingfailed">
+			<div class="col-sm-2"> </div> 
+			<div class="col-sm-8">
+				<div class="alert alert-danger" style="width: auto;font-size:auto;">
+				{{bidmessage}}{{currenttimer}} 
+				</div>
+			</div>	
+			<div class="col-sm-2"> </div> 
+			</div>
+			
+			
+			
+			<div class="row"> <!--FIFTH MAIN ROW OR LAST ROW for Today's Featured Collections-->
+				<div class="col-sm-2"> </div> <!--left empty column-->
+				
+				<div class="col-sm-8"> <!--MAIN INSIDE ROW FOR ADS-->
+					<div class="col-sm-12"><h2>Today's Featured Collections ({{resultlength}})</h2></div>
+					<div><hr></div>
+					
+				
+					<div class="col-sm-6" ng-repeat="product in products">  <!--ONE AD-->
+						
+						
+						<div ng-show="product.product_type==1">
+						<div class="panel panel-primary" >
+							<div class="panel-heading" align="middle" style="font-size:auto" ng-model="product_name_model"><strong><h3>{{product.product_name}}</h3></strong></div>
+							<div class="panel-body" style="height:170px">
+								<div class="row" align="middle" ng-model="product_desc_model"><strong>{{product.product_description}}</strong></div>
+								<br>
+								<div class="form-group">
+									<div class="col-sm-6"></div>
+									<div class="col-sm-6">
+										<input type="number" id="buyQuantity" min="1" max="{{product.product_qty}}" ng-model="product.selectQty" style="width:100%" class="form-control" placeholder="Enter Required Quantity">
+									</div>
+								</div>
+								<br><br>
+								<div class="form-group">
+									<div class="col-sm-6"></div>
+									<div class="col-sm-6">
+										<button  class="btn btn-success" style="display: block; width: 100%;font-size:auto" ng-click="addtocart(product)" ng-model="buyProductID"><strong>Add to cart</strong></button>
+									</div>
+								</div>
+							</div>	
+						
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-sm-3" align="middle" ng-model="product_price_model"> Price: ${{product.product_price}} </div>
+					
+									<div class="col-sm-5" align="middle" ng-model="product_qty_model"> Available Quantity: {{product.product_qty}}</div>
+					
+									<div class="col-sm-4" align="middle" ng-model="product_seller_model"> Seller: {{product.seller_uname}}</div>
+									<!--div class="col-sm-1" align="middle"> | </div-->
+									<!--div class="col-sm-4"><input type="checkbox" value="thenga_value">Shop now</div-->
+									<!--div class="col-sm-4" ><a href="#"><strong>Add to Cart</strong></a></div-->
+								</div>
+							</div>	
+						</div>	
+						</div>	
+						
+						
+						
+						<div ng-show="product.product_type==2">
+						<div class="panel panel-primary" >
+							<div class="panel-heading" align="middle" style="font-size:auto" ng-model="product_name_model"><strong><h3>{{product.product_name}}</h3></strong></div>
+							<div class="panel-body" style="height:170px">
+								<div class="row" align="middle" ng-model="product_desc_model"><strong>{{product.product_description}}</strong></div>
+								<div class="form-group">
+								<div class="col-sm-6" ></div>
+								<!--div class="col-sm-6" align="right">Current No of bids: {{product.noofbids}}</div-->
+								<div class="col-sm-6" align="right"></div>
+								</div>
+								<br>
+								<div class="form-group">
+									<!--div class="col-sm-6" align="left">Time left: {{product.timeleft}}</div-->
+									<div class="col-sm-6" align="left"></div>
+									<div class="col-sm-6" >
+										<input type="number" id="buyQuantity" min="1" max="{{product.product_qty}}" ng-model="product.selectQty" style="width:100%" class="form-control" placeholder="Enter Required Quantity">
+									</div>
+								</div>	
+								<br><br>
+								<div class="form-group">	
+									<div class="col-sm-6" >
+										<input type="number" id="buyQuantity" min="{{product.product_price+1}}" ng-model="product.selectPrice" style="width:100%" class="form-control" placeholder="Enter Bid Amount">
+									</div>
+									<div class="col-sm-6">
+										<button  class="btn btn-warning" style="display: block; width: 100%;font-size:auto" ng-click="placebid(product)" ng-model="placebidID"><strong>Place Bid</strong></button>
+									</div>
+								</div>
+							</div>	
+						
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-sm-3" align="middle" ng-model="product_price_model"> Price: ${{product.product_price}} </div>
+					
+									<div class="col-sm-5" align="middle" ng-model="product_qty_model"> Available Quantity: {{product.product_qty}}</div>
+					
+									<div class="col-sm-4" align="middle" ng-model="product_seller_model"> Seller: {{product.seller_uname}}</div>
+									<!--div class="col-sm-1" align="middle"> | </div-->
+									<!--div class="col-sm-4"><input type="checkbox" value="thenga_value">Shop now</div-->
+									<!--div class="col-sm-4" ><a href="#"><strong>Add to Cart</strong></a></div-->
+								</div>
+							</div>	
+						</div>	
+						</div>
+						
+						
+					</div>	<!--ONE AD-->
+					
+
+				</div> <!--MAIN INSIDE ROW FOR ADS-->
+				<div class="col-sm-2"> </div>  <!--right empty column-->
+			</div> <!--FIFTH MAIN ROW OR LAST ROW for Today's Featured Collections-->
+			
+			
+			
+	
+		</body>
+	</html>
+

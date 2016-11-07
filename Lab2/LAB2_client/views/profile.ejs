@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+	<html>
+
+		<head>
+			<!--link rel='stylesheet' href='/stylesheets/style.css' /-->
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+			
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			
+			<link rel='stylesheet' href='/stylesheets/hr.css' />
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+			
+			<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+			<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+			<link rel='stylesheet' href='/stylesheets/style.css' />
+			<link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+			<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+			<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+			<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script-->
+			
+			<meta charset="utf-8">
+			
+			<!--meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+			<meta http-equiv="Pragma" content="no-cache" />
+			<meta http-equiv="Expires" content="0" /-->
+		
+			<script src="angularjs/profile.js"></script>
+			
+			<title>profile</title>
+			
+			
+		</head>
+
+	
+		<body style="background-color :#F8F8F8" ng-app="profileapp" ng-controller="profilecontroller">
+		
+		<!--div class="row">
+			<div class="col-md-12">
+				<form action="logout" method="post">
+					<h4>Welcome to the Homepage, <%= firstname %></h4>
+					<input type="submit" value="Logout"  class="btn btn-success"/>
+				</form>
+			</div>
+		</div-->
+		
+		
+
+			<nav class="navbar navbar-default" > <!--FIRST MAIN ROW-->
+			<div class="container-fluid" style="background-color :#FFFFFF;  height:50px">
+				<div class="row"> <!--main row-->
+				<div class="col-sm-2"> </div> <!--left empty column-->
+
+				<div class="col-sm-8"><!--main column-->
+
+				<!--div class="navbar-header"><a class="navbar-brand" href="#" >Hi, Prince</a></div-->
+				<ul class="nav navbar-nav">
+					<!--li class="active" ><a href="#">Home</a></li-->
+
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hi, <strong><%= firstname %></strong><span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="/profile">My Proflile</a></li> <!--route to profile-->
+							<li><a href="/profile">My Advertisments</a></li>
+							
+							<li><a href="/profile">Sales History</a></li>
+							<li><a href="/profile">Purchase History</a></li>
+							<li><a href="/profile">Bidding History</a></li>
+							<li><a href="/logout">Sign out</a></li>
+						</ul>
+					</li>
+					
+					
+					<li><a href="/homepage">Home</a></li>
+					<li><a href="#">Daily deals</a></li>
+					<li><a href="#">Gift Cards</a></li>
+					<li><a href="#">Help & Contact</a></li>
+	
+				</ul>
+				
+				 <ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Sell</a></li> <!--route to profile-->
+ 
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">My eBay</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Summary</a></li>
+							<li><a href="#">All lists</a></li>
+							<li><a href="#">Wish list</a></li>
+						</ul>
+					</li>
+				 
+					<li><a href="/checkout"><span class="glyphicon glyphicon-bell"></span></a></li>
+					<li><a href="/cartpage"><span class="glyphicon glyphicon-shopping-cart"></span></a></li> <!--route to shopping cart-->
+				</ul>
+				</div><!--main column-->
+
+				<div class="col-sm-2"> </div>  <!--right empty column-->
+				</div> <!--main row-->
+			</div>
+			</nav> <!--FIRST MAIN ROW-->
+			
+  
+			<div class="row"> <!--SECOND MAIN ROW-->
+				<div class="col-sm-2"> </div> <!--left empty column-->
+				
+				<div class="col-sm-1">
+					<a href="/homepage"><img src="images/ebay_transparent.png" style="width:110px;height:44px;float:right" align="top" ></a>
+				</div>	
+				
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="mainSearch" placeholder="Search..." ng-model="search_model">
+				</div>
+					
+				<div class="col-sm-1">
+					<button  class="btn btn-primary" style="display: block; width: 100%;font-size:auto" ng-click="registersubmit();">Search</button>
+				</div>
+					
+				<div class="col-sm-2"> </div>  <!--right empty column-->
+			</div> <!--SECOND MAIN ROW-->
+			
+			
+			
+			
+			
+			<div class="row"> <!--PROFILE ROW-->
+				<div class="col-sm-2"> </div> <!--left empty column-->
+					<div class='col-sm-8' style = "background-image:url(images/profile_coverimg_wood.jpg);">
+						<div class="row"><br><br><br><br><br></div>
+						<div class="col-sm-2"> </div>
+						<div class="col-sm-8" style = "background-color: #F8F8F8;">
+							<!--div class="panel panel-default"-->
+								<div><p></p></div>
+								<!--div class="col-sm-2"-->
+									<img src="images/avatar.png" style="width:150px;height:150px;">
+								<!--/div-->
+								&nbsp;&nbsp;<font size='5' color='black'><b>{{user.fname}} {{user.lname}}</b></font>
+							<!--/div--> <!--panel panel-default-->
+						</div>
+						<div class="col-sm-2"> </div>
+					</div>
+				<div class="col-sm-2"> </div>  <!--right empty column-->
+			</div> <!--PROFILE ROW-->
+			
+			
+			
+			
+			
+			<!--div class="row"> 
+				<div class="col-sm-3"> </div>
+				<div class="col-sm-6" align='middle'> 
+					<p></p>
+					0 Followers | 0 Collections | 0 Guides | 0 Reviews | 0 Views | Member since: Oct 03, 2016 | <span class="glyphicon glyphicon-map-marker"></span> United States
+				</div>
+				<div class="col-sm-3"> </div> 
+			</div-->
+			
+			<div class="row"> 
+				<div class="col-sm-2"> </div>
+				<div class="col-sm-8" align='middle'> 
+					<p></p>
+					<span class="glyphicon glyphicon-user"></span> {{user.uname}}_01 | <span class="glyphicon glyphicon-envelope"></span> {{user.email}} | <span class="glyphicon glyphicon-earphone"></span> +1{{user.contact}} | DOB: {{user.bday}} | Member since: Oct 03, 2016 | <span class="glyphicon glyphicon-map-marker"></span> {{user.location}}
+				</div>
+				<div class="col-sm-2"> </div> 
+			</div>
+
+			
+			
+			
+			<br><br>
+			<div class="row"> 
+				<div class="col-sm-2"> </div> <!--left empty column-->
+				
+				<div class="col-sm-8"> 
+					<h2>Start selling on eBay today    <a style="float:right" ng-click="createad()">Create a new ad</a></h2>
+					<div><hr></div>
+					
+					<div class="row">
+					<div class="col-sm-2"> </div>
+					
+					<div class="col-sm-8"> 
+						<div class="panel panel-default" ng-show="createanad">
+							<!-- Default panel contents -->
+							<div class="panel-heading" align="middle">
+							<strong><h3>New advertisement</h3></strong>
+							<ul class="nav nav-tabs" >
+								<li class="active" style="width: 50%;font-size:auto;">
+									<a data-toggle="tab" href="#normalproduct"><strong><h4>Normal</h4></strong></a>
+								</li>
+								<li style="width: 50%;font-size:auto;">
+									<a data-toggle="tab" href="#bidproduct"><strong><h4>Bid</h4></strong></a>
+								</li>
+							</ul>
+							
+							
+							</div>
+								
+								<div class="panel-body">
+								<div class="tab-content">
+								
+								<div id="normalproduct" class="tab-pane fade in active">
+									<form class="form-horizontal" role="form">
+						
+										<div class="form-group usernameDiv">
+											<!--label class="inputUsername" class="col-sm-2 control-label pull-left">Enter your Email id</label-->
+											<div class="col-sm-12">
+												<input type="text" class="form-control" name="inputUsername" id="inputUsername" ng-model='Product_title' placeholder="Product title&#42;">
+											</div>
+										</div>
+										
+										<div class="form-group usernameDiv">
+											<div class="col-sm-12">
+												<input type="text" class="form-control" name="inputUsername" id="inputUsername" ng-model='Product_description' placeholder="Product description&#42;">
+											</div>
+										</div>
+										
+										<div class="form-group usernameDiv">
+											<div class="col-sm-6">
+												<input type="number" class="form-control" name="inputUsername" id="inputUsername" ng-model='Available_quantity' placeholder="Available quantiy&#42;">
+											</div>
+											
+											<div class="col-sm-6">
+												<input type="number" class="form-control" name="inputUsername" id="inputUsername" ng-model='Product_price' placeholder="Product price&#42;">
+											</div>
+										</div>
+						
+
+										<div class="form-group ">
+											<div align='middle'>
+												<button  class="btn btn-success" ng-click="adsubmit()">Done</button>
+											</div>
+										</div>
+									</form>
+								</div>	
+								
+								
+								<div id="bidproduct" class="tab-pane fade">
+									<form class="form-horizontal" role="form">
+						
+										<div class="form-group usernameDiv">
+											<div class="col-sm-12">
+												<input type="text" class="form-control" ng-model='bProduct_title' placeholder="Product title&#42;">
+											</div>
+										</div>
+										
+										<div class="form-group usernameDiv">
+											<div class="col-sm-12">
+												<input type="text" class="form-control" ng-model='bProduct_description' placeholder="Product description&#42;">
+											</div>
+										</div>
+										
+										<div class="form-group usernameDiv">
+											<div class="col-sm-6">
+												<input type="number" class="form-control" ng-model='bAvailable_quantity' placeholder="Available quantiy&#42;">
+											</div>
+											
+											<div class="col-sm-6">
+												<input type="number" class="form-control" ng-model='bProduct_price' placeholder="Bidding price&#42;">
+											</div>
+										</div>
+										
+										<div class="form-group usernameDiv">
+											<div class="col-sm-6">
+												<input type="number" class="form-control" ng-model='bNoofdays' placeholder="Bidding days&#42;">
+											</div>
+											
+											<div class="col-sm-6">
+									
+											</div>
+										</div>
+						
+
+										<div class="form-group ">
+											<div align='middle'>
+												<button  class="btn btn-success" ng-click="badsubmit()">Done</button>
+											</div>
+										</div>
+									</form>
+								</div>								
+								
+								
+								</div>
+								</div>
+								
+						
+				
+					</div>
+					<div class="col-sm-2"> </div>
+					</div>
+					
+				</div>
+	
+				<div class="col-sm-2"> </div> <!--right empty column-->
+			</div>
+			</div>
+			
+			
+			
+		
+			<div class="row"> <!--FIFTH MAIN ROW OR LAST ROW for Today's Featured Collections-->
+				<div class="col-sm-2"> </div> <!--left empty column-->
+				
+				<div class="col-sm-8"> 
+					<h2>Items for sale ({{resultlength}})<a style="float:right" ng-click="displaymyads()">See all my advertisements</a></h2>
+					<div><hr></div>
+					
+				
+					<div class="col-sm-6" ng-show="myads" ng-repeat="product in products"> 
+						<div class="panel panel-primary">
+							<div class="panel-heading" align="middle" style="font-size:auto" ng-model="product_name_model"><strong><h3>{{product.product_name}}</h3></strong></div>
+							<div class="panel-body" style="height:100px">
+								<div class="row" align="middle" ng-model="product_desc_model"><strong>{{product.product_description}}</strong></div>
+								<br>
+							</div>	
+						
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-sm-4" align="middle" ng-model="product_price_model"> Price/Item: ${{product.product_price}} </div>
+					
+									<div class="col-sm-4" align="middle" ng-model="product_qty_model"> Quantity: {{product.product_qty}}</div>
+					
+									<div class="col-sm-4" align="middle" ng-model="product_seller_model"> Seller: {{product.seller_uname}}</div>
+								</div>
+							</div>	
+						</div>
+					</div>
+					
+
+				</div> 
+				<div class="col-sm-2"> </div>  <!--right empty column-->
+			</div> <!--FIFTH MAIN ROW OR LAST ROW for Today's Featured Collections-->
+			
+			
+			
+			<div class="row"> 
+				<div class="col-sm-2"> </div> 
+				
+				<div class="col-sm-8"> 
+					<h2>Sales history ({{soldresultlength}})<a style="float:right" ng-click="solditems()">See all sold items </a></h2>
+					<div><hr></div>
+					
+				
+					<div class="col-sm-6" ng-show="sold_items" ng-repeat="sproduct in soldproducts"> 
+						<div class="panel panel-primary">
+							<div class="panel-heading" align="middle" style="font-size:auto" ng-model="product_name_model"><strong><h3>{{sproduct.product_name}}</h3></strong></div>
+							<div class="panel-body" style="height:100px">
+								<div class="row" align="middle" ng-model="product_desc_model"><strong>Bill ID: {{sproduct._id}}</strong></div>
+								
+								<div class="row" align="middle" ng-model="product_desc_model"><strong>Total Price: ${{sproduct.totalamt}}</strong></div>
+								<div class="row" align="middle" ng-model="product_desc_model"><strong>Total Items: {{sproduct.totalitems}}</strong></div>
+								<div class="row" align="middle" ng-model="product_desc_model"><strong>Buyer info: {{sproduct.buyer_name}}</strong></div>
+								<br>
+							</div>	
+						
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-sm-4" align="middle" ng-model="product_price_model"> Price/Item: ${{sproduct.product_price}} </div>
+					
+									<div class="col-sm-4" align="middle" ng-model="product_qty_model"> Quantity: {{sproduct.product_qty}}</div>
+					
+									<div class="col-sm-4" align="middle" ng-model="product_seller_model"> Paid using: {{sproduct.bill_payment}}</div>
+								</div>
+							</div>	
+						</div>
+					</div>
+					
+
+				</div> 
+				<div class="col-sm-2"> </div>
+			</div> 	
+			
+			
+			
+			
+			<div class="row"> 
+				<div class="col-sm-2"> </div> 
+				
+				<div class="col-sm-8"> 
+					<h2>Purchase history ({{purchasedresultlength}})<a style="float:right" ng-click="purchaseditems()">See all purchased items </a></h2>
+					<div><hr></div>
+					
+				
+					<div class="col-sm-6" ng-show="purchased_items" ng-repeat="pproduct in purchasedproducts"> 
+						<div class="panel panel-primary">
+							<div class="panel-heading" align="middle" style="font-size:auto" ng-model="product_name_model"><strong><h3>{{pproduct.product_name}}</h3></strong></div>
+							<div class="panel-body" style="height:100px">
+								<div class="row" align="middle" ng-model="product_desc_model"><strong>Bill ID: {{pproduct._id}}</strong></div>
+								
+								<div class="row" align="middle" ng-model="product_desc_model"><strong>Total Price: ${{pproduct.totalamt}}</strong></div>
+								<div class="row" align="middle" ng-model="product_desc_model"><strong>Total Items: {{pproduct.totalitems}}</strong></div>
+								<div class="row" align="middle" ng-model="product_desc_model"><strong>Seller: {{pproduct.seller_name}}</strong></div>
+								<br>
+							</div>	
+						
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-sm-4" align="middle" ng-model="product_price_model"> Price/Item: ${{pproduct.product_price}} </div>
+					
+									<div class="col-sm-4" align="middle" ng-model="product_qty_model"> Quantity: {{pproduct.product_qty}}</div>
+					
+									<div class="col-sm-4" align="middle" ng-model="product_seller_model"> Paid using: {{pproduct.bill_payment}}</div>
+								</div>
+							</div>	
+						</div>
+					</div>
+					
+
+				</div> 
+				<div class="col-sm-2"> </div>
+			</div> 		
+
+
+			<div class="row"> 
+				<div class="col-sm-2"> </div> 
+				
+				<div class="col-sm-8"> 
+					<h2>Bidding history ({{bidresultlength}})<a style="float:right" ng-click="biditems()">See all bid items </a></h2>
+					<div><hr></div>
+					
+				
+					<div class="col-sm-6" ng-show="bid_items" ng-repeat="bproduct in bidproducts"> 
+						<div class="panel panel-primary">
+							<div class="panel-heading" align="middle" style="font-size:auto" ng-model="product_name_model"><strong><h3>{{bproduct.product_name}}</h3></strong></div>
+							<div class="panel-body" style="height:100px">
+								<div class="row" align="middle" ng-model="product_desc_model"><strong>{{bproduct.product_desc}}</strong></div>
+								<div class="row" align="middle" ng-model="product_desc_model"><strong>Bid ends at: {{bproduct.bid_endtime}}</strong></div>
+								<div class="row" align="middle" ng-model="product_bidamt_model"><strong>Bid Amount: ${{bproduct.bid_price}} </strong></div>
+								<br>
+							</div>	
+						
+							<div class="panel-footer">
+								<div class="row">
+
+									<div class="col-sm-4" align="middle" ng-model="product_qty_model"> Quantity: {{bproduct.product_qty}}</div>
+					
+									<div class="col-sm-8" align="middle" ng-model="product_seller_model">Seller: {{bproduct.product_seller}}</div>
+								</div>
+							</div>	
+						</div>
+					</div>
+					
+
+				</div> 
+				<div class="col-sm-2"> </div>
+			</div> 			
+			
+			
+			
+			
+	
+			
+			
+			
+	
+			
+			
+			
+			
+
+	
+		</body>
+	</html>
+

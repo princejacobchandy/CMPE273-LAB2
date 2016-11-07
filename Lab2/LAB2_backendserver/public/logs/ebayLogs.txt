@@ -1,0 +1,9 @@
+Sun Nov 06 2016 21:38:45 GMT-0800 (Pacific Standard Time) : User updated an item in his shopping cart : dabyshelly@gmail.com added Roadmaster Granite Peak Bike; 2(Quantity)
+Sun Nov 06 2016 21:38:50 GMT-0800 (Pacific Standard Time) : User made a new purchase, checkout successful and bill have been generated : dabyshelly@gmail.com
+Sun Nov 06 2016 21:39:02 GMT-0800 (Pacific Standard Time) : User added an item to his shopping cart : dabyshelly@gmail.com added Apple iPhone 7 Plus; 1(Quantity)
+Sun Nov 06 2016 21:39:14 GMT-0800 (Pacific Standard Time) : User added an item to his shopping cart : dabyshelly@gmail.com added Gibson Guitar; 1(Quantity)
+Sun Nov 06 2016 21:39:20 GMT-0800 (Pacific Standard Time) : User made a new purchase, checkout successful and bill have been generated : dabyshelly@gmail.com
+Sun Nov 06 2016 21:45:12 GMT-0800 (Pacific Standard Time) : User added an item to his shopping cart : princeofalltimes@gmail.com added Go Pro HERO5; 2(Quantity)
+Sun Nov 06 2016 21:45:15 GMT-0800 (Pacific Standard Time) : User made a new purchase, checkout successful and bill have been generated : princeofalltimes@gmail.com
+Sun Nov 06 2016 21:45:20 GMT-0800 (Pacific Standard Time) : User removed an item from his shopping cart : princeofalltimes@gmail.com removed 581f9ccfd6b0684ccc3bb051
+Sun Nov 06 2016 21:45:22 GMT-0800 (Pacific Standard Time) : User made a new purchase, checkout successful and bill have been generated : princeofalltimes@gmail.com

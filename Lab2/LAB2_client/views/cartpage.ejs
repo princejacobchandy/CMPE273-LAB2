@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+	<html>
+
+		<head>
+			<!--link rel='stylesheet' href='/stylesheets/style.css' /-->
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+			
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			
+			<link rel='stylesheet' href='/stylesheets/hr.css' />
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+			
+			<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+			<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+			<link rel='stylesheet' href='/stylesheets/style.css' />
+			<link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+			<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+			<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+			<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script-->
+			
+			<meta charset="utf-8">
+			
+			<!--meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+			<meta http-equiv="Pragma" content="no-cache" />
+			<meta http-equiv="Expires" content="0" /-->
+		
+			<script src="angularjs/cartpage.js"></script>
+			
+			<title>cartpage</title>
+			
+			
+		</head>
+
+	
+		<body style="background-color :#F8F8F8" ng-app="cartpageapp" ng-controller="cartpagecontroller">
+		
+		<!--div class="row">
+			<div class="col-md-12">
+				<form action="logout" method="post">
+					<h4>Welcome to the Homepage, <%= firstname %></h4>
+					<input type="submit" value="Logout"  class="btn btn-success"/>
+				</form>
+			</div>
+		</div-->
+		
+		
+
+			<nav class="navbar navbar-default" > <!--FIRST MAIN ROW-->
+			<div class="container-fluid" style="background-color :#FFFFFF;  height:50px">
+				<div class="row"> <!--main row-->
+				<div class="col-sm-2"> </div> <!--left empty column-->
+
+				<div class="col-sm-8"><!--main column-->
+
+				<!--div class="navbar-header"><a class="navbar-brand" href="#" >Hi, Prince</a></div-->
+				<ul class="nav navbar-nav">
+					<!--li class="active" ><a href="#">Home</a></li-->
+
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hi, <strong><%= firstname %></strong><span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="/profile">My Proflile</a></li> <!--route to profile-->
+							<li><a href="/profile">Advertisments</a></li>
+				
+							<li><a href="/profile">Sales History</a></li>
+							<li><a href="/profile">Purchase History</a></li>
+							<li><a href="/profile">Bidding History</a></li>
+							<li><a href="/logout">Sign out</a></li>
+						</ul>
+					</li>
+					
+					
+					<li><a href="/homepage">Home</a></li>
+					<li><a href="#">Daily deals</a></li>
+					<li><a href="#">Gift Cards</a></li>
+					<li><a href="#">Help & Contact</a></li>
+	
+				</ul>
+				
+				 <ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Sell</a></li> <!--route to profile-->
+ 
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">My eBay</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Summary</a></li>
+							<li><a href="#">All lists</a></li>
+							<li><a href="#">Wish list</a></li>
+						</ul>
+					</li>
+				 
+					<li><a href="/checkout"><span class="glyphicon glyphicon-bell"></span></a></li>
+					<li><a href="/cartpage"><span class="glyphicon glyphicon-shopping-cart"></span></a></li> <!--route to shopping cart-->
+				</ul>
+				</div><!--main column-->
+
+				<div class="col-sm-2"> </div>  <!--right empty column-->
+				</div> <!--main row-->
+			</div>
+			</nav> <!--FIRST MAIN ROW-->
+			
+  
+			<div class="row"> <!--SECOND MAIN ROW-->
+				<div class="col-sm-2"> </div> <!--left empty column-->
+				
+				<div class="col-sm-1">
+					<a href="/homepage"><img src="images/ebay_transparent.png" style="width:110px;height:44px;float:right" align="top" ></a>
+				</div>	
+				
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="mainSearch" placeholder="Search..." ng-model="search_model">
+				</div>
+					
+				<div class="col-sm-1">
+					<button  class="btn btn-primary" style="display: block; width: 100%;font-size:auto" ng-click="registersubmit();">Search</button>
+				</div>
+					
+				<div class="col-sm-2"> </div>  <!--right empty column-->
+			</div> <!--SECOND MAIN ROW-->
+			
+			
+		
+			<div class="row"> <!--FIFTH MAIN ROW OR LAST ROW for Today's Featured Collections-->
+				
+				<div class="col-sm-2"></div>
+				<div class="col-sm-10"><h1>&nbsp;&nbsp;Your eBay Shopping Cart</h1><br></div>
+				
+				<div class="col-sm-2"> </div> <!--left empty column-->
+				
+				<div class="col-sm-5"> <!--LEFT MAIN COLUMN AREA-->
+					
+		
+					<div class="col-sm-12">  <!--MAIN PANEL-->
+						<div class="panel panel-default"> <!--PANEL PRIMARY-->
+							<div class="panel-body"> <!--PANEL BODY-->
+							
+							
+								<div class="col-sm-12" ng-show="cartempty">  
+									<div class="row" style="font-size:auto;"><strong>Your shopping cart is empty, but it doesn't have to be.</strong></div>
+									<div class="row" style="font-size:auto;">
+										<p>There are lots of great deals and one-of-a-kind items just waiting for you.<br>
+										Start shopping, and look for the "Add to cart" button. You can add several items to your 
+										cart from different sellers and pay for them all at once.
+										</p>
+									</div>
+									<div class="row">
+										<div class="col-sm-2"></div>
+										<div class="col-sm-10">
+											<ul>
+												<li><a href="/homepage">Start shopping and search for great deals</a></li>
+												<li><a href="/profile">Go to My eBay and see items that you're watching</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>	
+								
+							
+								<div class="col-sm-12" ng-repeat="product in shoppingCart">  <!--ONE AD-->
+									<div class="panel panel-default">
+									<div class="panel-heading" style="font-size:auto;"><strong><h3>{{product.product_name}}</h3></strong></div>
+									<div class="panel-body"> <!--INNER PANEL BODY-->
+									
+										
+										<div class="col-sm-12" style="font-size:auto;"><strong></strong></div>
+										
+										<div class="col-sm-12" style="font-size:auto;"><strong>{{product.product_desc}}</strong></div>
+										
+										<div class="col-sm-12">
+											<div class="form-group">
+												<div align="right">Quantity: {{product.product_qty}}</div>
+												<!--div class="col-sm-4 pull-right" style="float:right"><input type="number"  class="form-control" id="buyQuantity" placeholder="" ng-model="buyQuantityuModel"><br></div-->
+											</div>	
+										</div>
+										
+									    
+										<div class="col-sm-6" style="font-size:auto;"><strong>Price(1 quantity): ${{product.product_price}}</strong></div>
+										
+										<div class="col-sm-6" style="font-size:auto;" align='right'><strong>FREE SHIPPING</strong></div>
+										
+									</div> <!--INNER PANEL BODY-->	
+						
+									<div class="panel-footer">
+									<div class="row">
+									<div class="col-sm-4"> Seller: {{product.seller_uname}} </div>
+					
+									<div class="col-sm-4" align="middle"> <a>Save for later</a></div>
+					
+									<div class="col-sm-4" align="right"><a ng-click="removeitemfromcart(product._id, product.product_id, product.buyer_uname)"> Remove</a></div>
+									<!--div class="col-sm-1" align="middle"> | </div-->
+									<!--div class="col-sm-4"><input type="checkbox" value="thenga_value">Shop now</div-->
+									<!--div class="col-sm-4" ><a href="#"><strong>Add to Cart</strong></a></div-->
+									</div>
+									</div>	
+									</div>
+								</div>	<!--ONE AD-->
+
+							</div> <!--PANEL BODY-->	
+						</div> <!--PANEL PRIMARY-->
+					</div>	<!--MAIN PANEL-->
+
+				</div> <!--LEFT MAIN COLUMN AREA-->
+				
+				
+				
+				
+				
+				
+				<div class="col-sm-3" ng-show="cartnotempty"> <!--RIGHT MAIN COLUMN AREA-->
+					<div class="col-sm-12">  <!--ONE AD-->
+						
+						<div class="panel panel-default">
+							<div class="panel-heading" style="font-size:150%;">
+								<strong>Cart Summary </strong> ({{noofitems}} items)
+								
+							</div>
+							<div class="panel-body"> <!--INNER PANEL BODY-->
+								<div class="col-sm-12" style="font-size:150%;">Total: ${{totalamount}}</div>
+								
+								<div class="col-sm-12">
+									<br>
+									<button  class="btn btn-primary" style="display: block; width: 100%;font-size:auto" ng-click="gotocheckout();"><strong>Proceed to checkout</strong></button>
+								</div>
+							</div> <!--INNER PANEL BODY-->	
+							<!--div class="panel-footer">
+									
+							</div-->	
+						</div><!--panel panel-default-->
+						
+						
+						<div class="panel panel-default">
+							<div class="panel-body"> <!--INNER PANEL BODY-->
+								<div class="col-sm-12" style="font-size:auto;" align="right">Subtotal ({{noofitems}} items): ${{totalamount}}</div>
+								<div class="col-sm-12" style="font-size:auto;" align="right">Shipping: FREE</div>
+								<div class="col-sm-12" style="font-size:auto;" align="right">Sales Tax: $0<br></div>
+								
+								<div class="col-sm-12" style="font-size:auto;" align="right"><br><hr><h3>Total: ${{totalamount}}</h3><hr></div>
+								
+								<div class="col-sm-12">
+									<br>
+									<button  class="btn btn-default" style="display: block; width: 100%;font-size:auto" ng-click="gotohomepage();"><strong>Continue shopping</strong></button>
+								</div>
+								
+							</div> <!--INNER PANEL BODY-->	
+						</div> <!--panel panel-default-->
+						
+					</div>	<!--ONE AD-->
+				</div> <!--RIGHT MAIN COLUMN AREA-->
+				
+				
+				
+				
+			</div> <!--FIFTH MAIN ROW OR LAST ROW for Today's Featured Collections-->
+			
+			<div class="col-sm-2"> </div>  <!--right empty column-->
+			</div> <!--SECOND MAIN ROW-->
+	
+		</body>
+	</html>
+
