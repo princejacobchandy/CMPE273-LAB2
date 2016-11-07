@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+
+	<html>
+		
+		<head>
+			<title>login</title>
+			<link rel='stylesheet' href='/stylesheets/style.css' />
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+			
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+			
+			<meta charset="utf-8">
+			<script src="angularjs/login.js"></script>
+		</head>
+
+
+		<body ng-app="login" ng-controller="login">
+		
+			<div class="row"> <!--main row-->
+
+			<div class="col-sm-4"></div> <!--left side column gap-->
+			
+			<div class="col-sm-4"> <!--main column-->
+				
+				
+				<center><img src="images/ebay_signin.png" style="width:120px;height:60px;" align="middle"></center>
+				<br>
+				<div class="panel panel-default">
+				
+					<div class="panel-heading">
+						<!--div class="container"-->
+							<ul class="nav nav-tabs" >
+								<li class="active" style="width: 50%;font-size:auto;"><a data-toggle="tab" href="#signindiv"><span class="glyphicon glyphicon-circle-arrow-right"></span>
+								&nbsp;&nbsp;Sign in</a></li>
+								<li style="width: 50%;font-size:auto;"><a data-toggle="tab" href="#registerdiv"><span class="glyphicon glyphicon-plus-sign"></span>
+								&nbsp;&nbsp;&nbsp;Register</a></li>
+							</ul>
+						<!--/div-->
+					</div>
+					
+					<div class="panel-body" >
+					<div class="tab-content">
+					
+						<div id="signindiv" class="tab-pane fade in active">
+						<form class="form-horizontal" role="form">
+						
+							<!--div class="form-group usernameDiv" -->
+								<div class="col-md-12" ng-show="invalid_login">
+									<div class="alert alert-danger"  style="width: auto;font-size:auto;">
+									Oops, that's not a match ! &nbsp;&nbsp;&nbsp;Try Again !
+									</div>
+								</div>
+							<!--/div-->
+							
+							<!--div class="form-group usernameDiv" -->
+								<div class="col-md-12" ng-show="unexpected_error">
+									<div class="alert alert-danger" style="width: auto;font-size:auto;">
+									Server not responding at the time, try again ! <!--Unexpected error, try again-->
+									</div>	
+								</div>
+								
+							<!--/div-->
+
+							<div class="form-group usernameDiv">
+								<div class="col-sm-12">
+									<input type="text" class="form-control" id="inputUsername" placeholder="Email or username&#42;" ng-model="username_model">
+								</div>
+							</div>
+							
+							<div class="form-group usernameDiv">
+								<div class="col-sm-12">
+									<input type="password" class="form-control" id="inputsignPassword" placeholder="Password&#42;" ng-model="login_pword_model">
+								</div>
+							</div>
+							
+							<div class="form-group ">
+								<div class="col-sm-12">
+									<button  class="btn btn-primary" style="display: block; width: 100%;font-size:auto;" ng-click="signinsubmit();"><strong>Sign in</strong></button>
+								</div>
+							</div>
+							
+						</form>
+						</div>
+					
+						<div id="registerdiv" class="tab-pane fade">
+						<form class="form-horizontal" role="form">
+						
+							<div class="col-md-12" ng-show="unexpected_error">
+								<div class="alert alert-danger" style="width: auto;font-size:auto;">
+									Unexpected error, try again !  <!--Server not responding at the time, try again-->
+									</div>	
+								</div>
+						
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input type="email" class="form-control" id="inputEmail" placeholder="Email&#42;" ng-model="email_model">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input type="text" class="form-control" id="inputUN" placeholder="Username&#42;" ng-model="uname_model">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input type="password" class="form-control" id="inputregPassword" placeholder="Password&#42;" ng-model="reg_pword_model">
+								</div>
+							</div>
+													
+							<div class="form-group">
+								<div class="col-sm-6">
+									<input type="text" class="form-control" id="inputFN" placeholder="First name&#42;" ng-model="fn_model" style="font-size:auto;">
+								</div>
+								
+								<div class="col-sm-6">
+									<input type="text" class="form-control" id="inputLN" placeholder="Last name" ng-model="ln_model" style="font-size:auto;">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="col-sm-6">
+								 <input placeholder="Birthday (optional)" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="bdate" ng-model="bday_model">
+								</div>	
+								
+								<div class="col-sm-6">
+									<input type="text" class="form-control" id="inputLocation" placeholder="Location (optional)" ng-model="location_model" maxlength="15">
+								</div>                   
+							</div>
+							
+	
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input type="text" class="form-control" id="inputContact" placeholder="Mobile phone (optional)" ng-model="contact_model" input size="number">
+								</div>
+							</div>
+							
+							<!--div class="form-group"-->
+							<div class="col-md-12" ng-show="incomplete_reg"> 
+								<div class="alert alert-danger"  style="width: auto;font-size:auto;">
+								Type in the required(&#42;) fields and try again !
+								</div>
+							</div>
+							
+							<div class="col-md-12" ng-show="regdetails_inuse"> 
+								<div class="alert alert-danger"  style="width: auto;font-size:auto;">
+								Username/Email already in use !
+								</div>
+							</div>
+							
+							<div class="col-md-12" ng-show="try_with_new"> 
+								<div class="alert alert-success"  style="width: auto;font-size:auto;">
+								Registration done! Sign in with your new credentials !
+								</div>
+							</div>
+							<!--/div-->
+							
+							<div class="form-group">
+								<div class="col-sm-12">
+									<!--button  class="btn btn-primary" style="display: block; width: 100%;font-size: 200%;" ng-click="registersubmit();"><strong>Register</strong></button-->
+									<button  class="btn btn-primary" style="display: block; width: 100%;font-size:auto" ng-click="registersubmit();"><strong>Register</strong></button>
+								</div>
+							</div>
+							
+						</form>
+						</div>
+					
+					</div> <!--tab-content div-->			
+					</div> <!--panelbody-->
+					
+				</div> <!--panel panel-->
+		    
+			</div> <!--main column-->	
+			<!--div class="col-sm-4"></div--> <!--right side column gap-->
+			</div> <!--main row-->
+	
+        </body>		
+	
+	</html>
